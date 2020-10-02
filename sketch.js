@@ -77,7 +77,9 @@ function draw() {
      
      divisions[k].display();
    }
+   
   if(turn == 5 && particles[4].body.position.y > 500){
+
     for(var j = 0; j < 5; j++){
       if(particles[j].body.position.x > 0 && particles[j].body.position.x < 240)
         score+=100;
@@ -86,11 +88,11 @@ function draw() {
       else if(particles[j].body.position.x<800)
         score+=200;  
     }
-  gameState = "end";  
+    gameState = "end";  
 }
 
    rect(400, 500, 800, 5);
-   
+
    text("100", 25,475);
    text("100", 105,475);
    text("100", 185,475);
@@ -106,13 +108,13 @@ function draw() {
     textSize(40);
     text("Game Over", 300,250);
     text("Score: " + score, 300,350);
-    turn = 0;
+    turn = 6;
    }
    
 }
 
 function mousePressed() {
-  if(gameState === "play"){
+  if(gameState === "play"&& turn < 5){
 
     particles.push(new Particle(mouseX, 10, 10, 10) );
     turn++;
